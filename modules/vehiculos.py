@@ -1,4 +1,4 @@
-from modules.utils import cargar_datos, guardar_datos
+from .utils import cargar_datos, guardar_datos
 
 ARCHIVO_VEHICULOS = "data/vehiculos.json"
 
