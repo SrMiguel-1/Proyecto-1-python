@@ -40,3 +40,17 @@ def listar_vehiculos():
     for i, v in enumerate(vehiculos, 1):
         estado = "Disponible" if v["disponible"] else "Ocupado/En clase"
         print(f"{i}. Placa: {v['placa']} | Tipo: {v['tipo'].capitalize()} | Estado: {estado}")
+
+
+def gestionar_vehiculos():
+    while True:
+        print("\n1. Registrar vehículo\n2. Listar vehículos\n3. Volver")
+        opcion = input("Seleccione una opción: ").strip()
+        if opcion == "1":
+            registrar_vehiculos()
+        elif opcion == "2":
+            listar_vehiculos()
+        elif opcion == "3":
+            return
+        else:
+            print("Opción inválida.")

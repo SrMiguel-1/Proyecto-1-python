@@ -11,5 +11,8 @@ def cargar_datos(nombre_archivo):
         return []
 
 def guardar_datos(nombre_archivo, datos):
+    carpeta = os.path.dirname(nombre_archivo)
+    if carpeta:
+        os.makedirs(carpeta, exist_ok=True)
     with open(nombre_archivo, "w", encoding="utf-8") as archivo:
         json.dump(datos, archivo, indent=4, ensure_ascii=False)

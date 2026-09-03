@@ -47,7 +47,7 @@ def programar_cita():
     if not vehiculos_disponibles:
         print(f"No hay vehículos de tipo '{tipo_clase}' disponibles en este momento.")
         return
-    print(f"\nVehículos disponibles:")
+    print("\nVehículos disponibles:")
     for i, v in enumerate(vehiculos_disponibles, 1):
         print(f"{i}. Placa: {v['placa']}")
 
@@ -86,6 +86,20 @@ def listar_citas():
         return
     print("\n--- LISTA DE CITAS PROGRAMADAS ---")
     for i, c in enumerate(citas, 1):
-        print(f"{1}. Fecha: {c['fecha']} | Tipo: {c['tipo'].capitalize()} | Cliente Doc: {c['cliente']} | Vehículo: {c['vehiculo']} | Estado: {c['estado']}")
+        print(f"{i}. Fecha: {c['fecha']} | Tipo: {c['tipo_clase'].capitalize()} | Cliente Doc: {c['cliente']} | Vehículo: {c['vehiculo']} | Estado: {c['estado']}")
+
+
+def gestionar_citas():
+    while True:
+        print("\n1. Programar cita\n2. Listar citas\n3. Volver")
+        opcion = input("Seleccione una opción: ").strip()
+        if opcion == "1":
+            programar_cita()
+        elif opcion == "2":
+            listar_citas()
+        elif opcion == "3":
+            return
+        else:
+            print("Opción inválida.")
         
 

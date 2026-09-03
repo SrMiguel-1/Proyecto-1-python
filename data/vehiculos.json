@@ -1,0 +1,12 @@
+[
+    {
+        "placa": "BVC829",
+        "tipo": "carro",
+        "disponible": true
+    },
+    {
+        "placa": "HKI345",
+        "tipo": "moto",
+        "disponible": true
+    }
+]
