@@ -1,50 +1,49 @@
 from .utils import cargar_datos, guardar_datos
 
 ARCHIVO_INSTRUCTORES = "data/instructores.json"
-from .utils import cargar_datos, guardar_datos
-
-ARCHIVO_INSTRUCTORES = "data/instructores.json"
-
 
 def registrar_instructor():
-	instructores = cargar_datos(ARCHIVO_INSTRUCTORES)
-	print("\n--- REGISTRAR INSTRUCTOR ---")
-	documento = input("Documento: ").strip()
-	if not documento:
-		print("El documento es obligatorio.")
-		return
-	if any(instructor["documento"] == documento for instructor in instructores):
-		print("Ya existe un instructor con ese documento.")
-		return
-	nombre = input("Nombre completo: ").strip()
-	especialidad = input("Especialidad (moto/carro): ").strip().lower()
-	if especialidad not in ("moto", "carro"):
-		print("La especialidad debe ser 'moto' o 'carro'.")
-		return
-	instructores.append({"documento": documento, "nombre": nombre, "especialidad": especialidad})
-	guardar_datos(ARCHIVO_INSTRUCTORES, instructores)
-	print("Instructor registrado exitosamente.")
+    instructores = cargar_datos(ARCHIVO_INSTRUCTORES)
+    
+    print("\n--- REGISTRAR NUEVO INSTRUCTOR ---")
+    documento = input("Ingrese el documento del instructor: ").strip()
+    
+    if any(i["documento"] == documento for i in instructores):
+        print("Error: Ya existe un instructor con este documento.")
+        return
 
+    nombre = input("Ingrese el nombre completo: ").strip()
+    
+    print("Seleccione la especialidad:")
+    print("1. Carro")
+    print("2. Moto")
+    opcion_esp = input("Elija una opción (1-2): ").strip()
+    
+    if opcion_esp == "1":
+        especialidad = "carro"
+    elif opcion_esp == "2":
+        especialidad = "moto"
+    else:
+        print("Opción de especialidad no válida. Se cancela el registro.")
+        return
+
+    nuevo_instructor = {
+        "documento": documento,
+        "nombre": nombre,
+        "especialidad": especialidad
+    }
+    
+    instructores.append(nuevo_instructor)
+    guardar_datos(ARCHIVO_INSTRUCTORES, instructores)
+    print(f"¡Instructor {nombre} registrado con especialidad en {especialidad}!")
 
 def listar_instructores():
-	instructores = cargar_datos(ARCHIVO_INSTRUCTORES)
-	print("\n--- LISTA DE INSTRUCTORES ---")
-	if not instructores:
-		print("No hay instructores registrados.")
-		return
-	for numero, instructor in enumerate(instructores, 1):
-		print(f"{numero}. {instructor['nombre']} | Documento: {instructor['documento']} | Especialidad: {instructor['especialidad'].capitalize()}")
+    instructores = cargar_datos(ARCHIVO_INSTRUCTORES)
+    
+    if not instructores:
+        print("\nNo hay instructores registrados en el sistema.")
+        return
 
-
-def gestionar_instructores():
-	while True:
-		print("\n1. Registrar instructor\n2. Listar instructores\n3. Volver")
-		opcion = input("Seleccione una opción: ").strip()
-		if opcion == "1":
-			registrar_instructor()
-		elif opcion == "2":
-			listar_instructores()
-		elif opcion == "3":
-			return
-		else:
-			print("Opción inválida.")
+    print("\n--- LISTA DE INSTRUCTORES REGISTRADOS ---")
+    for i, ins in enumerate(instructores, 1):
+        print(f"{i}. Documento: {ins['documento']} | Nombre: {ins['nombre']} | Especialidad: {ins['especialidad'].capitalize()}")

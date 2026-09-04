@@ -89,17 +89,47 @@ def listar_citas():
         print(f"{i}. Fecha: {c['fecha']} | Tipo: {c['tipo_clase'].capitalize()} | Cliente Doc: {c['cliente']} | Vehículo: {c['vehiculo']} | Estado: {c['estado']}")
 
 
-def gestionar_citas():
-    while True:
-        print("\n1. Programar cita\n2. Listar citas\n3. Volver")
-        opcion = input("Seleccione una opción: ").strip()
-        if opcion == "1":
-            programar_cita()
-        elif opcion == "2":
-            listar_citas()
-        elif opcion == "3":
+def gestionar_asistencia_y_citas():
+    citas = cargar_datos(ARCHIVO_CITAS)
+    
+    if not citas:
+        print("\n📭 No hay citas registradas en el sistema.")
+        return
+
+    print("\n--- GESTIÓN DE CITAS Y ASISTENCIAS ---")
+    print("Citas actuales:")
+    for i, c in enumerate(citas, 1):
+        estado = c.get("estado", "Pendiente")
+        print(f"{i}. Fecha: {c['fecha']} | Cliente: {c['cliente']} | Vehículo: {c['vehiculo']} | Estado: {estado}")
+
+    try:
+        seleccion = int(input("\nSelecciona el número de la cita a gestionar (0 para retroceder): "))
+        if seleccion == 0:
             return
+        if seleccion < 1 or seleccion > len(citas):
+            print("Selección no válida.")
+            return
+        
+        cita_elegida = citas[seleccion - 1]
+        
+        print(f"\nCita seleccionada para el cliente: {cita_elegida['cliente']}")
+        print("1. Marcar como completada")
+        print("2. Cancelar / Eliminar cita")
+        opcion_gestion = input("Elige una acción (1-2): ").strip()
+        
+        if opcion_gestion == "1":
+            cita_elegida["estado"] = "Completada"
+            guardar_datos(ARCHIVO_CITAS, citas)
+            print("¡Cita marcada como completada! El vehículo, instructor y cliente han quedado libres.")
+            
+        elif opcion_gestion == "2":
+            citas.pop(seleccion - 1)
+            guardar_datos(ARCHIVO_CITAS, citas)
+            print("¡Cita eliminada del sistema con éxito!")
         else:
-            print("Opción inválida.")
+            print("Opción no válida.")
+            
+    except ValueError:
+        print("Por favor ingresa un número válido.")
         
 

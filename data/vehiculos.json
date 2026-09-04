@@ -2,11 +2,11 @@
     {
         "placa": "BVC829",
         "tipo": "carro",
-        "disponible": true
+        "disponible": false
     },
     {
         "placa": "HKI345",
         "tipo": "moto",
-        "disponible": true
+        "disponible": false
     }
 ]

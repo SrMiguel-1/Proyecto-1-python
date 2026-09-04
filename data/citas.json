@@ -1,0 +1,18 @@
+[
+    {
+        "cliente": "1146334094",
+        "instructor": "1234567890",
+        "vehiculo": "BVC829",
+        "tipo_clase": "carro",
+        "fecha": "2026-10-10",
+        "estado": "Completada"
+    },
+    {
+        "cliente": "123456789",
+        "instructor": "0987654321",
+        "vehiculo": "HKI345",
+        "tipo_clase": "moto",
+        "fecha": "2026-05-10",
+        "estado": "Programada"
+    }
+]

@@ -1,8 +1,7 @@
 from modules.vehiculos import registrar_vehiculos, listar_vehiculos
-from modules.citas import programar_cita, listar_citas
+from modules.citas import programar_cita, listar_citas, gestionar_asistencia_y_citas
 from modules.clientes import registrar_cliente, listar_clientes
-from modules.instructores import registrar_instructor, listar_instructores 
-
+from modules.instructores import registrar_instructor, listar_instructores
 
 def menu_principal():
     print("\n====================================")
@@ -26,9 +25,9 @@ def main():
             print("3. Volver")
             sub = input("Elige una opción: ").strip()
             if sub == "1":
-                registrar_cliente
+                registrar_cliente()
             elif sub == "2":
-                listar_clientes
+                listar_clientes()
             elif sub == "3":
                 break
             else:
@@ -43,9 +42,9 @@ def main():
                 sub = input("Elige una opción: ").strip()
 
                 if sub == "1":
-                    registrar_instructor
+                    registrar_instructor()
                 elif sub == "2":
-                    listar_instructores
+                    listar_instructores()
                 elif sub == "3":
                     break
                 else:
@@ -73,7 +72,8 @@ def main():
                 print("\n--- GESTIÓN DE CITAS ---")
                 print("1. Programar cita")
                 print("2. Listar citas")
-                print("3. Volver")
+                print("3. Gestionar asistencia")
+                print("4. Volver")
                 sub = input("Elige una opción: ").strip()
 
                 if sub == "1":
@@ -81,9 +81,11 @@ def main():
                 elif sub == "2":
                     listar_citas()
                 elif sub == "3":
+                    gestionar_asistencia_y_citas()
+                elif sub == "4":
                     break
                 else:
-                    print("Opción inválida. (1-3)")
+                    print("Opción inválida. (1-4)")
 
         elif opcion == "5":
             print("\n¡Nos vemos! Guardando... Cerrando sistema...")
