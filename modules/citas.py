@@ -93,7 +93,7 @@ def gestionar_asistencia_y_citas():
     citas = cargar_datos(ARCHIVO_CITAS)
     
     if not citas:
-        print("\n📭 No hay citas registradas en el sistema.")
+        print("\nNo hay citas registradas en el sistema.")
         return
 
     print("\n--- GESTIÓN DE CITAS Y ASISTENCIAS ---")
@@ -116,6 +116,24 @@ def gestionar_asistencia_y_citas():
         print("1. Marcar como completada")
         print("2. Cancelar / Eliminar cita")
         opcion_gestion = input("Elige una acción (1-2): ").strip()
+
+        if opcion_gestion in ["1", "2"]:
+            placa_vehiculo = cita_elegida.get("vehiculo") or cita_elegida.get("vehiculo")
+            nombre_instructor = cita_elegida.get("instructor")
+            
+            if placa_vehiculo:
+                vehiculos = cargar_datos(ARCHIVO_VEHICULOS)
+                for v in vehiculos:
+                    if v.get("placa") == placa_vehiculo:
+                        v["disponible"] = True
+                guardar_datos(ARCHIVO_VEHICULOS, vehiculos)
+
+            if nombre_instructor:
+                instructores = cargar_datos(ARCHIVO_INSTRUCTORES)
+                for ins in instructores:
+                    if ins.get("nombre") == nombre_instructor or ins.get("documento") == nombre_instructor:
+                        ins["estado"] = "Disponible"
+                guardar_datos(ARCHIVO_INSTRUCTORES, instructores)
         
         if opcion_gestion == "1":
             cita_elegida["estado"] = "Completada"

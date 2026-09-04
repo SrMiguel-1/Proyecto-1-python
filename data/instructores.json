@@ -2,11 +2,13 @@
     {
         "documento": "1234567890",
         "nombre": "Javier Perez",
-        "especialidad": "carro"
+        "especialidad": "carro",
+        "estado": "Disponible"
     },
     {
         "documento": "0987654321",
         "nombre": "Carlos Sainz",
-        "especialidad": "moto"
+        "especialidad": "moto",
+        "estado": "Disponible"
     }
 ]
