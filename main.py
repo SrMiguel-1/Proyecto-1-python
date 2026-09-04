@@ -20,16 +20,15 @@ def main():
         opcion = input("\nSeleccione una opcón (1-5):").strip()
 
         if opcion == "1":
-            print("\n--- MÓDULO CLIENTES ---")
+            print("\n--- GESTIÓN DE CLIENTES ---")
             print("1. Registrar cliente")
             print("2. Listar clientes")
             print("3. Volver")
             sub = input("Elige una opción: ").strip()
             if sub == "1":
-
-                print("en proceso")
+                registrar_cliente
             elif sub == "2":
-                print("en proceso")
+                listar_clientes
             elif sub == "3":
                 break
             else:
@@ -37,16 +36,16 @@ def main():
 
         elif opcion == "2":
             while True:
-                print("\n--- MÓDULO INSTRUCTORES ---")
+                print("\n--- GESTIÓN DE INSTRUCTORES ---")
                 print("1. Registrar instructor")
                 print("2. Listar instructores")
                 print("3. Volver")
                 sub = input("Elige una opción: ").strip()
 
                 if sub == "1":
-                    print("en proceso")
+                    registrar_instructor
                 elif sub == "2":
-                    print("en proceso")
+                    listar_instructores
                 elif sub == "3":
                     break
                 else:
