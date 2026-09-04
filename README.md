@@ -1,5 +1,4 @@
 # Proyecto-1-python
-trabajo de clase
 Es de nuestro agrado presentar tal sublime obra de código.
 Nuestro código funciona para registrar: clientes, instructores, vehículos y citas. Todo para solucionar la problemática planteada por DriveSafe.
 Nuestro código cuenta con: .json para guardado de datos haciendo posible su uso sin complicaciones y pérdida de información valiosa.
