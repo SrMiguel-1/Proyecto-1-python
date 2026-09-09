@@ -19,8 +19,8 @@ def registrar_evaluacion():
         print("Error. Faltan datos (Instructor o cliente)")
         return
 
-    cliente_name = input("Ingrese el documento del cliente: ").strip()
-    alumno = next((a for a in clientes if a["documento"] == cliente_name ), None)
+    cliente_name = input("Ingrese el nombre del cliente: ").strip()
+    alumno = next((a for a in clientes if a["nombre"] == cliente_name ), None)
 
     if not alumno:
         print("Alumno no encontrado")
