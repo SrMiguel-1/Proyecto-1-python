@@ -43,7 +43,7 @@ def registrar_evaluacion():
 
     evaluaciones.append(nueva_evaluacion)
     guardar_datos(ARCHIVO_EVALUACIONES, evaluaciones)
-
+    print("Nueva evaluación publicada")
 
 def listar_evaluaciones():
     evaluaciones = cargar_datos(ARCHIVO_EVALUACIONES)

@@ -1,0 +1,17 @@
+[
+    {
+        "alumno": {
+            "documento": "1146334094",
+            "nombre": "Miguel Jaimes",
+            "telefono": "3045697045"
+        },
+        "instructor": {
+            "documento": "0987654321",
+            "nombre": "Carlos Sainz",
+            "especialidad": "moto",
+            "estado": "Disponible"
+        },
+        "fecha": "2026-10-12",
+        "nota": "sin calificar"
+    }
+]

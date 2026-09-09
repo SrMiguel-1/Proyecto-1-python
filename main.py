@@ -21,7 +21,7 @@ def menu_principal():
 def main():
     while True:
         menu_principal()
-        opcion = input("\nSeleccione una opcón (1-5):").strip()
+        opcion = input("\nSeleccione una opcón (1-6):").strip()
 
         if opcion == "1":
             print("\n--- GESTIÓN DE CLIENTES ---")
